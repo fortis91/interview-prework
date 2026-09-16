@@ -31,8 +31,7 @@ Starts automatically as the `backend` service above, built from `backend/Dockerf
 `http://localhost:8080`. On startup, Flyway applies the migration and creates the `products`
 table if it doesn't already exist.
 
-- `GET /api/products` — list all products
-- `POST /api/products` — create a product, body `{ "name": "P1" }`
+See [API](#api) below for the full endpoint reference.
 
 To iterate on the backend natively instead (faster than rebuilding the image on every change):
 
@@ -64,6 +63,59 @@ docker compose up -d
 
 Open http://localhost:3000 (or `http://<host>:3000` if running on a remote server), create a
 product named `P1`, and confirm it appears in the list.
+
+## API
+
+Base URL: `http://localhost:8080/api/products` (backend served directly), or the relative path
+`/api/products` when going through the frontend's Vite dev server proxy at
+`http://localhost:3000/api/products`.
+
+### List products
+
+```
+GET /api/products
+```
+
+Returns all products.
+
+```bash
+curl http://localhost:8080/api/products
+```
+
+Response `200 OK`:
+
+```json
+[
+  { "id": 1, "name": "P1" },
+  { "id": 2, "name": "P2" }
+]
+```
+
+### Add product
+
+```
+POST /api/products
+```
+
+Creates a product. Request body:
+
+| Field  | Type   | Required | Notes           |
+|--------|--------|----------|-----------------|
+| `name` | string | yes      | Must not be blank |
+
+```bash
+curl -X POST http://localhost:8080/api/products \
+  -H "Content-Type: application/json" \
+  -d '{"name": "P1"}'
+```
+
+Response `201 Created`, with the saved product (including its generated `id`):
+
+```json
+{ "id": 1, "name": "P1" }
+```
+
+If `name` is missing or blank, the request is rejected with `400 Bad Request`.
 
 ## Notes
 
