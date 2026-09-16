@@ -117,6 +117,20 @@ Response `201 Created`, with the saved product (including its generated `id`):
 
 If `name` is missing or blank, the request is rejected with `400 Bad Request`.
 
+### Example requests (Postman)
+
+`GET /api/products`:
+
+![List products response](docs/screenshots/list-products-response.png)
+
+`POST /api/products` request body:
+
+![Add product request](docs/screenshots/add-product-request.png)
+
+`POST /api/products` response:
+
+![Add product response](docs/screenshots/add-product-response.png)
+
 ## Notes
 
 - Used the preferred stack as-is (React + Spring Boot + Postgres) — no deviation.
