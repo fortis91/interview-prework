@@ -1,13 +1,14 @@
-package com.grainger.products.product;
+package com.grainger.products.controller;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.grainger.products.dto.ProductResponse;
+import com.grainger.products.service.ProductService;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +24,12 @@ class ProductControllerTest {
     private MockMvc mockMvc;
 
     @MockBean
-    private ProductRepository productRepository;
+    private ProductService productService;
 
     @Test
     void listProductsReturnsAllProducts() throws Exception {
-        given(productRepository.findAll()).willReturn(List.of(new Product("P1"), new Product("P2")));
+        given(productService.listProducts())
+                .willReturn(List.of(new ProductResponse(1L, "P1"), new ProductResponse(2L, "P2")));
 
         mockMvc.perform(get("/api/products"))
                 .andExpect(status().isOk())
@@ -37,7 +39,7 @@ class ProductControllerTest {
 
     @Test
     void createProductSavesAndReturnsIt() throws Exception {
-        given(productRepository.save(any(Product.class))).willReturn(new Product("P1"));
+        given(productService.createProduct("P1")).willReturn(new ProductResponse(1L, "P1"));
 
         mockMvc.perform(post("/api/products")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -51,6 +53,8 @@ class ProductControllerTest {
         mockMvc.perform(post("/api/products")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\"name\":\"\"}"))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.error").value("Validation failed"))
+                .andExpect(jsonPath("$.fields.name").exists());
     }
 }
