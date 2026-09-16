@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: products-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/products
+    username: products
+    password: products
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+  flyway:
+    enabled: true
+
+server:
+  port: 8080
