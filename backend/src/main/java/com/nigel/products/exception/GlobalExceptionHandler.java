@@ -1,4 +1,4 @@
-package com.grainger.products.exception;
+package com.nigel.products.exception;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

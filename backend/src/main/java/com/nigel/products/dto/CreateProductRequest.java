@@ -1,4 +1,4 @@
-package com.grainger.products.dto;
+package com.nigel.products.dto;
 
 import jakarta.validation.constraints.NotBlank;
 

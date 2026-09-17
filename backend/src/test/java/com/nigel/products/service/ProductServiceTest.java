@@ -1,13 +1,13 @@
-package com.grainger.products.service;
+package com.nigel.products.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
-import com.grainger.products.dto.ProductResponse;
-import com.grainger.products.model.Product;
-import com.grainger.products.repository.ProductRepository;
+import com.nigel.products.dto.ProductResponse;
+import com.nigel.products.model.Product;
+import com.nigel.products.repository.ProductRepository;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

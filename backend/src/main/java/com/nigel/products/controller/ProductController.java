@@ -1,8 +1,8 @@
-package com.grainger.products.controller;
+package com.nigel.products.controller;
 
-import com.grainger.products.dto.CreateProductRequest;
-import com.grainger.products.dto.ProductResponse;
-import com.grainger.products.service.ProductService;
+import com.nigel.products.dto.CreateProductRequest;
+import com.nigel.products.dto.ProductResponse;
+import com.nigel.products.service.ProductService;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.http.HttpStatus;

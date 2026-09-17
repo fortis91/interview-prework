@@ -1,8 +1,8 @@
-package com.grainger.products.service;
+package com.nigel.products.service;
 
-import com.grainger.products.dto.ProductResponse;
-import com.grainger.products.model.Product;
-import com.grainger.products.repository.ProductRepository;
+import com.nigel.products.dto.ProductResponse;
+import com.nigel.products.model.Product;
+import com.nigel.products.repository.ProductRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

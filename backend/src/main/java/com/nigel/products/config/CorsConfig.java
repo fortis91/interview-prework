@@ -1,4 +1,4 @@
-package com.grainger.products.config;
+package com.nigel.products.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

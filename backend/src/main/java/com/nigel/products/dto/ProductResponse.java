@@ -1,6 +1,6 @@
-package com.grainger.products.dto;
+package com.nigel.products.dto;
 
-import com.grainger.products.model.Product;
+import com.nigel.products.model.Product;
 
 public record ProductResponse(Long id, String name) {
 

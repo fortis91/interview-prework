@@ -1,6 +1,6 @@
-package com.grainger.products.repository;
+package com.nigel.products.repository;
 
-import com.grainger.products.model.Product;
+import com.nigel.products.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductRepository extends JpaRepository<Product, Long> {

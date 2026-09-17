@@ -1,4 +1,4 @@
-package com.grainger.products.controller;
+package com.nigel.products.controller;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.BDDMockito.given;
@@ -7,8 +7,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.grainger.products.dto.ProductResponse;
-import com.grainger.products.service.ProductService;
+import com.nigel.products.dto.ProductResponse;
+import com.nigel.products.service.ProductService;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

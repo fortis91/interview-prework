@@ -1,4 +1,4 @@
-package com.grainger.products.model;
+package com.nigel.products.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
